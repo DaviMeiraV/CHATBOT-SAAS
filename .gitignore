@@ -1,0 +1,16 @@
+# Ignora volumes de dados do Docker Compose
+dbdata/
+n8n_data/
+
+# Arquivos de configurações de ambiente e chaves
+.env
+.env.*
+
+# Arquivos temporários e logs
+*.log
+
+# Ignora o PostgreSQL
+postgres/
+
+# N8N Cache e Logs internos (se aplicável)
+.n8n/
