@@ -59,23 +59,6 @@ services:
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
 
-  # 4) Evolution API (NOVO SERVIÇO)
-  evolution-api:
-    image: atendai/evolution-api:latest
-    restart: unless-stopped
-    environment:
-      # Token de autenticação lido do arquivo .env (Passo 2)
-      - AUTHENTICATION_API_KEY=${EVO_API_KEY}
-      # A URL do seu servidor para webhooks (Evolution envia mensagens para cá)
-      - SERVER_URL=http://n8n.localhost:8080
-      - SERVER_PORT=8080
-    ports:
-      - "8080:8080" # Porta para acesso à Evolution Manager e API
-    volumes:
-      # Volume para dados persistentes de sessão (QR Code)
-      - evolution_data:/home/node/evolution-api/
-
 volumes:
   dbdata:
   n8n_data:
-  evolution_data:
